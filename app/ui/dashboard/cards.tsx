@@ -4,12 +4,14 @@ import {
   UserGroupIcon,
   InboxIcon,
 } from '@heroicons/react/24/outline';
+import { FaAngular } from "react-icons/fa6";
+import { FaReact } from "react-icons/fa6";
 
 const iconMap = {
   collected: BanknotesIcon,
-  customers: UserGroupIcon,
+  angular: FaAngular,
   pending: ClockIcon,
-  invoices: InboxIcon,
+  react: FaReact ,
 };
 
 export default async function CardWrapper() {
@@ -36,7 +38,7 @@ export function Card({
 }: {
   title: string;
   value: number | string;
-  type: 'invoices' | 'customers' | 'pending' | 'collected';
+  type: 'angular' | 'react' | 'pending' | 'collected';
 }) {
   const Icon = iconMap[type];
   console.log('value', value);
