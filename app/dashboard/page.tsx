@@ -1,19 +1,33 @@
 // import UsersChart from '@/app/ui/dashboard/users-chart';
 import { Suspense } from 'react';
 import Image from 'next/image';
+import { fetchRevenue, fetchLatestInvoices } from '@/app/lib/data';
+import RevenueChart from '@/app/ui/dashboard/revenue-chart';
+import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 
 export default async function Dashboard() {
+  const revenue = await fetchRevenue();
+  const latestInvoices = await fetchLatestInvoices();
   return (
-    <div>
-      Dashboard
-      <div>
+    <main>
+      <h1 className={` mb-4 text-xl md:text-2xl`}>Dashboard</h1>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {/* <Suspense fallback={<p>Loading</p>}>
           <UsersChart />
         </Suspense> */}
       </div>
-      <div>
-        <p>I am already here</p>
+      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+        <RevenueChart revenue={revenue} />
+        <LatestInvoices latestInvoices={latestInvoices} />
       </div>
-    </div>
+      {/* <Card title="Collected" value={totalPaidInvoices} type="collected" /> */}
+      {/* <Card title="Pending" value={totalPendingInvoices} type="pending" /> */}
+      {/* <Card title="Total Invoices" value={numberOfInvoices} type="invoices" /> */}
+      {/* <Card
+          title="Total Customers"
+          value={numberOfCustomers}
+          type="customers"
+        /> */}
+    </main>
   );
 }
