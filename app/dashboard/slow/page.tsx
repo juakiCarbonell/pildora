@@ -1,4 +1,4 @@
-// import UsersChart from '@/app/ui/dashboard/users-chart';
+export const dynamic = "force-dynamic"
 import {
   fetchLatestInvoices,
   fetchCardData,
