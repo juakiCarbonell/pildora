@@ -41,7 +41,6 @@ export function Card({
   type: 'angular' | 'react' | 'pending' | 'collected';
 }) {
   const Icon = iconMap[type];
-  console.log('value', value);
   return (
     <div className="rounded-xl bg-gray-50 p-2 shadow-sm">
       <div className="flex p-4">

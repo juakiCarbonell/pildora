@@ -16,7 +16,7 @@ const getUsers = async (): Promise<User[]> => {
 
 export default async function Dashboard() {
   const revenueSlow = await fetchRevenueSlow();
-  const users = await getUsers();
+  const users = await fetchLatestInvoices();
   const {
     numberOfInvoices,
     numberOfCustomers,

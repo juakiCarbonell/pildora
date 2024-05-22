@@ -12,15 +12,15 @@ import { RevenueChartSkeleton } from '@/app/ui/skeletons';
 import RevenueChartStreaming from '@/app/ui/dashboard/revenue-chart-streaming';
 import { User } from '@/app/lib/definitions';
 
-const getUsers = async (): Promise<User[]> => {
-  const users = await fetch('https://pildora.vercel.app/users/api');
-  return users.json();
-};
+// const getUsers = async (): Promise<User[]> => {
+//   const users = await fetch('https://pildora.vercel.app/users/api');
+//   return users.json();
+// };
 
 
 export default async function Dashboard() {
-  const latestInvoices = await fetchLatestInvoices();
-  const users = await getUsers();
+  const revenue = await fetchRevenueSlow()
+  const users = await fetchLatestInvoices();
   const {
     numberOfInvoices,
     numberOfCustomers,
