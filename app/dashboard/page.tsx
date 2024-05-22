@@ -6,17 +6,21 @@ import {
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { Card } from '@/app/ui/dashboard/cards';
-import { Revenue } from '../lib/definitions';
+import { Revenue, User } from '../lib/definitions';
 
-const getData = async (): Promise<Revenue[]> => {
-  const revenue = await fetch('https://pildora.vercel.app/dashboard/api');
+const getRevenue = async (): Promise<Revenue[]> => {
+  const revenue = await fetch('https://pildora.vercel.app/revenue/api');
   return revenue.json();
+};
+const getUsers = async (): Promise<User[]> => {
+  const users = await fetch('https://pildora.vercel.app/users/api');
+  return users.json();
 };
 
 export default async function Dashboard() {
-  const revenue = await getData();
+  const revenue = await getRevenue();
   // const revenue = await fetchRevenue()
-  const latestInvoices = await fetchLatestInvoices();
+  const users = await getUsers();
   const {
     numberOfInvoices,
     numberOfCustomers,
@@ -50,7 +54,7 @@ export default async function Dashboard() {
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
         <RevenueChart revenue={revenue} />
-        <LatestInvoices latestInvoices={latestInvoices} />
+        <LatestInvoices users={users} />
       </div>
     </main>
   );
