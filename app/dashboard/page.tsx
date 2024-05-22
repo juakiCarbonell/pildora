@@ -9,7 +9,7 @@ import { Card } from '@/app/ui/dashboard/cards';
 import { Revenue } from '../lib/definitions';
 
 const getData = async (): Promise<Revenue[]> => {
-  const revenue = await fetch('/api/dashboard');
+  const revenue = await fetch('/dashboard/api');
   return revenue.json();
 };
 
