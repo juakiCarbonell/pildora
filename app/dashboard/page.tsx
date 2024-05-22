@@ -6,8 +6,23 @@ import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { Card } from '@/app/ui/dashboard/cards';
 
+async function getData() {
+  const res = await fetch('/dashboard/api')
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+ 
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to fetch data')
+  }
+ 
+  return res.json()
+}
+
 export default async function Dashboard() {
-  const revenue = await fetchRevenue();
+  const revenue = await fetchRevenue()
+  const data = await getData()
+  console.log('data', data)
   const latestInvoices = await fetchLatestInvoices();
   const {
     numberOfInvoices,
