@@ -9,11 +9,11 @@ import { Card } from '@/app/ui/dashboard/cards';
 import { Revenue, User } from '../lib/definitions';
 
 const getRevenue = async (): Promise<Revenue[]> => {
-  const revenue = await fetch('https://pildora.vercel.app/revenue/api');
+  const revenue = await fetch('https://pildora.vercel.app/revenue/api/');
   return revenue.json();
 };
 const getUsers = async (): Promise<User[]> => {
-  const users = await fetch('https://pildora.vercel.app/users/api');
+  const users = await fetch('https://pildora.vercel.app/users/api/');
   return users.json();
 };
 
