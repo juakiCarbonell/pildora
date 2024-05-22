@@ -9,7 +9,7 @@ import { Card } from '@/app/ui/dashboard/cards';
 import { Revenue } from '../lib/definitions';
 
 const getData = async (): Promise<Revenue[]> => {
-  const revenue = await fetch('dashboard/api');
+  const revenue = await fetch('https://pildora.vercel.app/dashboard/api/dashboard/api');
   return revenue.json();
 };
 
