@@ -1,5 +1,5 @@
 
-export async function getRevenue(request: Request) {
+export async function GET(request: Request) {
   const data = [
     { month: 'Jan', revenue: 2000 },
     { month: 'Feb', revenue: 1800 },
