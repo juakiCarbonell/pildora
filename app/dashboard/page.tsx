@@ -7,7 +7,7 @@ import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { Card } from '@/app/ui/dashboard/cards';
 
 async function getData() {
-  const res = await fetch('/dashboard/api')
+  const res = await fetch('dashboard/api')
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
  
