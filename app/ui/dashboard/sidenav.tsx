@@ -9,12 +9,13 @@ export default function SideNav() {
       <Link
         className="flex h-20 items-end justify-start rounded-md bg-orange-600 p-4 md:h-40"
         href="/"
-        prefetch={false}
+        // prefetch={false}
       >
         <div className="w-16 text-white md:w-40">
           <CommunityLogo />
         </div>
       </Link>
+      
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 bg-gray-50">
         <NavLinks />
         <div className="hidden h-auto w-full grow md:block"></div>
