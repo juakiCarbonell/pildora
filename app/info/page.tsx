@@ -9,7 +9,7 @@ export default function Info() {
       <div className="lg flex h-20 shrink-0 items-end rounded-md bg-orange-500 p-4 md:h-36">
         <CommunityLogo />
       </div>
-      <div className="lg mt-2 flex items-end justify-items-end">
+      {/* <div className="lg mt-2 flex items-end justify-items-end">
         <div className="lg mt-2 flex items-end justify-end w-full gap-2">
           <Link
             href="/"
@@ -25,7 +25,7 @@ export default function Info() {
             <span>Dashboard</span> <HomeIcon className="w-5 md:w-6" />
           </Link>
         </div>
-      </div>
+      </div> */}
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg  px-6 py-10 md:w-2/5 md:px-20">
           <h1 className="text-2xl">Comunidad Front</h1>
