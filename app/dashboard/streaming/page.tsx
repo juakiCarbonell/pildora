@@ -1,5 +1,6 @@
 import {
   fetchCardData,
+  getStats,
   getUsers,
 } from '@/app/lib/data';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
@@ -11,11 +12,11 @@ import RevenueChartStreaming from '@/app/ui/dashboard/revenue-chart-streaming';
 export default async function Dashboard() {
   const users = await getUsers();
   const {
-    numberOfInvoices,
-    numberOfCustomers,
+    reactDevelopers,
+    angularDevelopers,
     totalPaidInvoices,
     totalPendingInvoices,
-  } = await fetchCardData();
+  } = await getStats();
   return (
     <main>
       <h1 className={` mb-4 text-xl md:text-2xl`}>Dashboard Streaming</h1>
@@ -31,13 +32,13 @@ export default async function Dashboard() {
           type="pending"
         />
         <Card
-          title="Desarrolladores React"
-          value={numberOfInvoices}
+          title="React dev"
+          value={reactDevelopers}
           type="react"
         />
         <Card
-          title="Desarrolladores Angular"
-          value={numberOfCustomers}
+          title="Angular dev"
+          value={angularDevelopers}
           type="angular"
         />
       </div>

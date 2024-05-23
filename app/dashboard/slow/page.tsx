@@ -1,4 +1,4 @@
-import { fetchCardData, getUsers, getRevenueSlow } from '@/app/lib/data';
+import { getUsers, getRevenueSlow, getStats } from '@/app/lib/data';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { Card } from '@/app/ui/dashboard/cards';
@@ -6,13 +6,13 @@ import { Card } from '@/app/ui/dashboard/cards';
 export default async function Dashboard() {
   const revenueSlow = await getRevenueSlow();
   const users = await getUsers();
-
   const {
-    numberOfInvoices,
-    numberOfCustomers,
+    reactDevelopers,
+    angularDevelopers,
     totalPaidInvoices,
     totalPendingInvoices,
-  } = await fetchCardData();
+  } = await getStats();
+
   return (
     <main>
       <h1 className={` mb-4 text-xl md:text-2xl`}>Dashboard Lenta</h1>
@@ -28,13 +28,13 @@ export default async function Dashboard() {
           type="pending"
         />
         <Card
-          title="Desarrolladores React"
-          value={numberOfInvoices}
+          title="React dev"
+          value={reactDevelopers}
           type="react"
         />
         <Card
-          title="Desarrolladores Angular"
-          value={numberOfCustomers}
+          title="Angular dev"
+          value={angularDevelopers}
           type="angular"
         />
       </div>
