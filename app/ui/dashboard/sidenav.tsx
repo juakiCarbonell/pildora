@@ -6,15 +6,18 @@ import { PowerIcon } from '@heroicons/react/24/outline';
 export default function SideNav() {
   return (
     <div className="flex h-full flex-col">
-      <Link
+      {/* <Link
         className="flex h-20 items-end justify-start rounded-md bg-orange-600 p-4 md:h-40"
         href="/"
-        // prefetch={false}
+        prefetch={false}
       >
         <div className="w-16 text-white md:w-40">
           <CommunityLogo />
         </div>
-      </Link>
+      </Link> */}
+      <div className="w-16 text-white md:w-40">
+          <CommunityLogo />
+        </div>
       
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 bg-gray-50">
         <NavLinks />
