@@ -1,7 +1,6 @@
 
 export async function GET() {
   const data = [
-    { month: 'Jun', revenue: 2000 },
     { month: 'Jul', revenue: 1800 },
     { month: 'Ago', revenue: 2200 },
     { month: 'Sep', revenue: 2500 },
@@ -13,6 +12,7 @@ export async function GET() {
     { month: 'Mar', revenue: 2800 },
     { month: 'Abr', revenue: 3000 },
     { month: 'May', revenue: 4800 },
+    { month: 'Jun', revenue: 2000 },
   ];
 
   return Response.json(data);
