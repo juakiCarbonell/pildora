@@ -9,7 +9,7 @@ export default function SideNav() {
       <Link
         className="flex h-20 items-end justify-start rounded-md bg-orange-600 p-4 md:h-40"
         href="/"
-        
+        prefetch={false}
       >
         <div className="w-16 text-white md:w-40">
           <CommunityLogo />
