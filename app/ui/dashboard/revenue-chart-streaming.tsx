@@ -1,11 +1,12 @@
+import { getRevenueSlow } from '@/app/lib/slowRepo';
 import { generateYAxis } from '@/app/lib/utils';
 import { lusitana } from '@/app/ui/fonts';
-import { getRevenueNotCacheSlow } from '@/app/lib/data';
+
 
 const chartHeight = 350;
 export default async function RevenueChartStreaming() {
-  const revenueSlow = await getRevenueNotCacheSlow();
-  
+  const revenueSlow = await getRevenueSlow();
+
   const { yAxisLabels, topLabel } = generateYAxis(revenueSlow);
 
   if (!revenueSlow || revenueSlow.length === 0) {

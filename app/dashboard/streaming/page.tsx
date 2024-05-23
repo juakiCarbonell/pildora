@@ -1,4 +1,4 @@
-import { getStatsNotCached, getUsersNotCached } from '@/app/lib/data';
+import { fetchCardStats, fetchUsers } from '@/app/lib/noCachedRepo';
 import Users from '@/app/ui/dashboard/users';
 import { Card } from '@/app/ui/dashboard/cards';
 import { Suspense } from 'react';
@@ -6,13 +6,13 @@ import { RevenueChartSkeleton } from '@/app/ui/skeletons';
 import RevenueChartStreaming from '@/app/ui/dashboard/revenue-chart-streaming';
 
 export default async function DashboardStreaming() {
-  const users = await getUsersNotCached();
+  const users = await fetchUsers();
   const {
     reactDevelopers,
     angularDevelopers,
     totalPaidInvoices,
     totalPendingInvoices,
-  } = await getStatsNotCached();
+  } = await fetchCardStats();
   return (
     <main>
       <h1 className={` mb-4 text-xl md:text-2xl`}>Dashboard Streaming</h1>

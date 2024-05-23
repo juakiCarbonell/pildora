@@ -1,17 +1,18 @@
-import { getUsers, getRevenueNotCacheSlow, getStats, getUsersNotCached, getStatsNotCached } from '@/app/lib/data';
+import { fetchUsers, fetchCardStats } from '@/app/lib/noCachedRepo';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import Users from '@/app/ui/dashboard/users';
 import { Card } from '@/app/ui/dashboard/cards';
+import { fetchRevenueSlow } from '@/app/lib/slowRepo';
 
 export default async function DashboardSlow() {
-  const revenueSlow = await getRevenueNotCacheSlow();
-  const users = await getUsersNotCached();
+  const revenueSlow = await fetchRevenueSlow();
+  const users = await fetchUsers();
   const {
     reactDevelopers,
     angularDevelopers,
     totalPaidInvoices,
     totalPendingInvoices,
-  } = await getStatsNotCached();
+  } = await fetchCardStats();
 
   return (
     <main>

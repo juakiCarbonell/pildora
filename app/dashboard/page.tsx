@@ -1,17 +1,17 @@
-import { getUsers, getRevenue, getStats } from '@/app/lib/data';
+import { fetchUsers, fetchRevenue, fetchCardStats } from '@/app/lib/repo';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import Users from '@/app/ui/dashboard/users';
 import { Card } from '@/app/ui/dashboard/cards';
 
 export default async function Dashboard() {
-  const revenue = await getRevenue();
-  const users = await getUsers();
+  const revenue = await fetchRevenue();
+  const users = await fetchUsers();
   const {
     reactDevelopers,
     angularDevelopers,
     totalPaidInvoices,
     totalPendingInvoices,
-  } = await getStats();
+  } = await fetchCardStats();
 
   return (
     <main>
