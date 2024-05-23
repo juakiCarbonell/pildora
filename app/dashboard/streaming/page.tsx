@@ -1,4 +1,4 @@
-import { fetchCardData, getStats, getStatsNotCached, getUsers, getUsersNotCached } from '@/app/lib/data';
+import { getStatsNotCached, getUsersNotCached } from '@/app/lib/data';
 import Users from '@/app/ui/dashboard/users';
 import { Card } from '@/app/ui/dashboard/cards';
 import { Suspense } from 'react';
