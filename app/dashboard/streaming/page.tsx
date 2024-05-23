@@ -1,9 +1,5 @@
-import {
-  fetchCardData,
-  getStats,
-  getUsers,
-} from '@/app/lib/data';
-import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
+import { fetchCardData, getStats, getUsers } from '@/app/lib/data';
+import Users from '@/app/ui/dashboard/users';
 import { Card } from '@/app/ui/dashboard/cards';
 import { Suspense } from 'react';
 import { RevenueChartSkeleton } from '@/app/ui/skeletons';
@@ -31,22 +27,14 @@ export default async function Dashboard() {
           value={totalPendingInvoices}
           type="pending"
         />
-        <Card
-          title="React dev"
-          value={reactDevelopers}
-          type="react"
-        />
-        <Card
-          title="Angular dev"
-          value={angularDevelopers}
-          type="angular"
-        />
+        <Card title="React dev" value={reactDevelopers} type="react" />
+        <Card title="Angular dev" value={angularDevelopers} type="angular" />
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
         <Suspense fallback={<RevenueChartSkeleton />}>
           <RevenueChartStreaming />
         </Suspense>
-        <LatestInvoices users={users} />
+        <Users users={users} />
       </div>
     </main>
   );

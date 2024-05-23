@@ -1,6 +1,6 @@
 import { getUsers, getRevenueSlow, getStats } from '@/app/lib/data';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
-import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
+import Users from '@/app/ui/dashboard/users';
 import { Card } from '@/app/ui/dashboard/cards';
 
 export default async function Dashboard() {
@@ -27,20 +27,12 @@ export default async function Dashboard() {
           value={totalPendingInvoices}
           type="pending"
         />
-        <Card
-          title="React dev"
-          value={reactDevelopers}
-          type="react"
-        />
-        <Card
-          title="Angular dev"
-          value={angularDevelopers}
-          type="angular"
-        />
+        <Card title="React dev" value={reactDevelopers} type="react" />
+        <Card title="Angular dev" value={angularDevelopers} type="angular" />
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
         <RevenueChart revenue={revenueSlow} />
-        <LatestInvoices users={users} />
+        <Users users={users} />
       </div>
     </main>
   );
