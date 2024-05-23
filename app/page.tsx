@@ -24,7 +24,6 @@ export default function Home() {
             </Link>
 
             <Link
-              prefetch={false}
               href="/info"
               className="text-nowrap  flex items-center gap-5 self-start rounded-lg border border-orange-500 bg-white px-6 py-3 text-sm font-medium text-orange-500 transition-colors hover:bg-gray-200 lg:text-base"
             >
