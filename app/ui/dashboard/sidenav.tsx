@@ -15,11 +15,13 @@ export default function SideNav() {
           <CommunityLogo />
         </div>
       </Link> */}
-      <div className="w-16 text-white md:w-40">
+      <div className="flex h-20 items-end justify-start rounded-md bg-orange-600 p-4 md:h-40">
+        <div className="w-16 text-white md:w-40">
           <CommunityLogo />
         </div>
-      
-      <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 bg-gray-50">
+      </div>
+
+      <div className="flex grow flex-row justify-between space-x-2 bg-gray-50 md:flex-col md:space-x-0">
         <NavLinks />
         <div className="hidden h-auto w-full grow md:block"></div>
         <form>
