@@ -7,6 +7,7 @@ import {
   LatestInvoiceRaw,
   User,
   Revenue,
+  Stats,
 } from './definitions';
 import { formatCurrency } from './utils';
 // import { unstable_noStore as noStore } from 'next/cache';
@@ -99,6 +100,7 @@ export async function fetchCardData() {
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
     const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
     const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
+    console.log('Card data:', numberOfCustomers, numberOfInvoices, totalPaidInvoices, totalPendingInvoices)
     return {
       numberOfCustomers,
       numberOfInvoices,
@@ -147,114 +149,31 @@ export async function fetchFilteredInvoices(
   }
 }
 
-// export async function fetchInvoicesPages(query: string) {
-//   noStore();
-//   try {
-//     const count = await sql`SELECT COUNT(*)
-//     FROM invoices
-//     JOIN customers ON invoices.customer_id = customers.id
-//     WHERE
-//       customers.name ILIKE ${`%${query}%`} OR
-//       customers.email ILIKE ${`%${query}%`} OR
-//       invoices.amount::text ILIKE ${`%${query}%`} OR
-//       invoices.date::text ILIKE ${`%${query}%`} OR
-//       invoices.status ILIKE ${`%${query}%`}
-//   `;
+export const getRevenue = async (): Promise<Revenue[]> => {
+  const revenue = await fetch('https://pildora.vercel.app/revenue/api/');
+  return revenue.json();
+};
+export const getUsers = async (): Promise<User[]> => {
+  const users = await fetch('https://pildora.vercel.app/users/api/');
+  return users.json();
+};
 
-//     const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
-//     return totalPages;
-//   } catch (error) {
-//     console.error('Database Error:', error);
-//     throw new Error('Failed to fetch total number of invoices.');
-//   }
-// }
+export const getRevenueSlow = async (): Promise<Revenue[]> => {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  const revenue = await fetch('https://pildora.vercel.app/revenue/api/');
+  return revenue.json();
+};
 
-// export async function fetchInvoiceById(id: string) {
-//   noStore();
-//   try {
-//     const data = await sql<InvoiceForm>`
-//       SELECT
-//         invoices.id,
-//         invoices.customer_id,
-//         invoices.amount,
-//         invoices.status
-//       FROM invoices
-//       WHERE invoices.id = ${id};
-//     `;
 
-//     const invoice = data.rows.map((invoice) => ({
-//       ...invoice,
-//       // Convert amount from cents to dollars
-//       amount: invoice.amount / 100,
-//     }));
+export const getCardData = async (): Promise<Revenue[]> => {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  const revenue = await fetch('https://pildora.vercel.app/revenue/api/');
+  return revenue.json();
+};
 
-//     return invoice[0];
-//   } catch (error) {
-//     console.error('Database Error:', error);
-//     throw new Error('Failed to fetch invoice.');
-//   }
-// }
 
-// export async function fetchCustomers() {
-//   noStore();
-//   try {
-//     const data = await sql<CustomerField>`
-//       SELECT
-//         id,
-//         name
-//       FROM customers
-//       ORDER BY name ASC
-//     `;
-
-//     const customers = data.rows;
-//     return customers;
-//   } catch (err) {
-//     console.error('Database Error:', err);
-//     throw new Error('Failed to fetch all customers.');
-//   }
-// }
-
-// export async function fetchFilteredCustomers(query: string) {
-//   noStore();
-//   try {
-//     const data = await sql<CustomersTableType>`
-// 		SELECT
-// 		  customers.id,
-// 		  customers.name,
-// 		  customers.email,
-// 		  customers.image_url,
-// 		  COUNT(invoices.id) AS total_invoices,
-// 		  SUM(CASE WHEN invoices.status = 'pending' THEN invoices.amount ELSE 0 END) AS total_pending,
-// 		  SUM(CASE WHEN invoices.status = 'paid' THEN invoices.amount ELSE 0 END) AS total_paid
-// 		FROM customers
-// 		LEFT JOIN invoices ON customers.id = invoices.customer_id
-// 		WHERE
-// 		  customers.name ILIKE ${`%${query}%`} OR
-//         customers.email ILIKE ${`%${query}%`}
-// 		GROUP BY customers.id, customers.name, customers.email, customers.image_url
-// 		ORDER BY customers.name ASC
-// 	  `;
-
-//     const customers = data.rows.map((customer) => ({
-//       ...customer,
-//       total_pending: formatCurrency(customer.total_pending),
-//       total_paid: formatCurrency(customer.total_paid),
-//     }));
-
-//     return customers;
-//   } catch (err) {
-//     console.error('Database Error:', err);
-//     throw new Error('Failed to fetch customer table.');
-//   }
-// }
-
-// export async function getUser(email: string) {
-//   noStore();
-//   try {
-//     const user = await sql`SELECT * FROM users WHERE email=${email}`;
-//     return user.rows[0] as User;
-//   } catch (error) {
-//     console.error('Failed to fetch user:', error);
-//     throw new Error('Failed to fetch user.');
-//   }
-// }
+export const getStats = async (): Promise<Stats> => {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+  const revenue = await fetch('https://pildora.vercel.app/revenue/api/');
+  return revenue.json();
+};

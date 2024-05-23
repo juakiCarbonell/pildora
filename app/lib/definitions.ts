@@ -87,3 +87,10 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+export type Stats = {
+  reactDevelopers: number;
+  angularDevelopers: number;
+  totalPaidInvoices: string;
+  totalPendingInvoices: string;
+}

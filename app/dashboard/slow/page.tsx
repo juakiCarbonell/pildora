@@ -1,22 +1,12 @@
-// export const dynamic = "force-dynamic"
-import {
-  fetchLatestInvoices,
-  fetchCardData,
-  fetchRevenueSlow,
-} from '@/app/lib/data';
+import { fetchCardData, getUsers, getRevenueSlow } from '@/app/lib/data';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import { Card } from '@/app/ui/dashboard/cards';
-import { User } from '@/app/lib/definitions';
-
-const getUsers = async (): Promise<User[]> => {
-  const users = await fetch('https://pildora.vercel.app/users/api');
-  return users.json();
-};
 
 export default async function Dashboard() {
-  const revenueSlow = await fetchRevenueSlow();
-  const users = await fetchLatestInvoices();
+  const revenueSlow = await getRevenueSlow();
+  const users = await getUsers();
+
   const {
     numberOfInvoices,
     numberOfCustomers,
