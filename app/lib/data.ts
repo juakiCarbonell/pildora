@@ -100,7 +100,13 @@ export async function fetchCardData() {
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
     const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
     const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
-    console.log('Card data:', numberOfCustomers, numberOfInvoices, totalPaidInvoices, totalPendingInvoices)
+    console.log(
+      'Card data:',
+      numberOfCustomers,
+      numberOfInvoices,
+      totalPaidInvoices,
+      totalPendingInvoices,
+    );
     return {
       numberOfCustomers,
       numberOfInvoices,
@@ -150,22 +156,32 @@ export async function fetchFilteredInvoices(
 }
 
 export const getRevenue = async (): Promise<Revenue[]> => {
-  const revenue = await fetch('https://pildora.vercel.app/revenue/api/');
+  const revenue = await fetch('https://pildora.vercel.app/revenue/api/', {
+    cache: 'no-store',
+  });
   return revenue.json();
-};
-export const getUsers = async (): Promise<User[]> => {
-  const users = await fetch('https://pildora.vercel.app/users/api/');
-  return users.json();
 };
 
 export const getRevenueSlow = async (): Promise<Revenue[]> => {
   await new Promise((resolve) => setTimeout(resolve, 3000));
-  const revenue = await fetch('https://pildora.vercel.app/revenue/api/');
+  const revenue = await fetch('https://pildora.vercel.app/revenue/api/', {
+    cache: 'no-store',
+  });
   return revenue.json();
 };
 
 
+export const getUsers = async (): Promise<User[]> => {
+  const users = await fetch('https://pildora.vercel.app/users/api/', {
+    cache: 'no-store',
+  });
+  return users.json();
+};
+
+
 export const getStats = async (): Promise<Stats> => {
-  const revenue = await fetch('https://pildora.vercel.app/stats/api/');
+  const revenue = await fetch('https://pildora.vercel.app/stats/api/', {
+    cache: 'no-store',
+  });
   return revenue.json();
 };
