@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 import { RevenueChartSkeleton } from '@/app/ui/skeletons';
 import RevenueChartStreaming from '@/app/ui/dashboard/revenue-chart-streaming';
 
-export default async function Dashboard() {
+export default async function DashboardStreaming() {
   const users = await getUsersNotCached();
   const {
     reactDevelopers,

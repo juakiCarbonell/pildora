@@ -12,7 +12,7 @@ export default async function Dashboard() {
     totalPaidInvoices,
     totalPendingInvoices,
   } = await getStats();
-  console.log('Dashboard data:', revenue)
+
   return (
     <main>
       <h1 className={` mb-4 text-xl md:text-2xl`}>Dashboard</h1>

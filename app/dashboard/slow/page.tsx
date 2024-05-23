@@ -3,7 +3,7 @@ import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import Users from '@/app/ui/dashboard/users';
 import { Card } from '@/app/ui/dashboard/cards';
 
-export default async function Dashboard() {
+export default async function DashboardSlow() {
   const revenueSlow = await getRevenueNotCacheSlow();
   const users = await getUsersNotCached();
   const {
