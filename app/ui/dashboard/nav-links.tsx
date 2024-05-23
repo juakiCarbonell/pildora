@@ -18,7 +18,7 @@ const links = [
     href: '/dashboard/slow',
     icon: PresentationChartBarIcon,
   },
-  { name: 'Dashboard Straming', href: '/dashboard/streaming', icon: PresentationChartBarIcon },
+  { name: 'Dashboard Streaming', href: '/dashboard/streaming', icon: PresentationChartBarIcon },
 ];
 
 export default function NavLinks() {

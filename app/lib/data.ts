@@ -9,6 +9,7 @@ export const getRevenue = async (): Promise<Revenue[]> => {
   const revenue = await fetch('https://pildora.vercel.app/revenue/api/');
   return revenue.json();
 };
+
 export const getRevenueNotCache = async (): Promise<Revenue[]> => {
   const revenue = await fetch('https://pildora.vercel.app/revenue/api/', {
     cache: 'no-store',
