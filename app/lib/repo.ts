@@ -11,9 +11,6 @@ export const fetchUsers = async (): Promise<User[]> => {
 };
 
 export const fetchCardStats = async (): Promise<Stats> => {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  const revenue = await fetch('https://pildora.vercel.app/stats/api/', {
-    cache: 'no-store',
-  });
+  const revenue = await fetch('https://pildora.vercel.app/stats/api/');
   return revenue.json();
 };
