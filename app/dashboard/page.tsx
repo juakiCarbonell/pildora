@@ -2,10 +2,11 @@ import { fetchUsers, fetchRevenue, fetchCardStats } from '@/app/lib/repo';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import Users from '@/app/ui/dashboard/users';
 import { Card } from '@/app/ui/dashboard/cards';
+import UsersTest from '../ui/dashboard/usersTest';
 
 export default async function Dashboard() {
   const revenue = await fetchRevenue();
-  const users = await fetchUsers();
+  
   const {
     reactDevelopers,
     angularDevelopers,
@@ -32,7 +33,7 @@ export default async function Dashboard() {
       </div>
       <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
         <RevenueChart revenue={revenue} />
-        <Users users={users} />
+        <UsersTest />
       </div>
     </main>
   );
