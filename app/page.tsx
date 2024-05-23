@@ -20,7 +20,7 @@ export default function Home() {
               href="/dashboard"
               className="text-nowrap flex items-center gap-5 self-start rounded-lg bg-orange-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-orange-400 lg:text-base"
             >
-              <span>Log in</span> <ArrowRightIcon className="w-5 lg:w-6" />
+              <span>Dashboard</span> <ArrowRightIcon className="w-5 lg:w-6" />
             </Link>
 
             <Link
