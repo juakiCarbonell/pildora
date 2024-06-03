@@ -1,5 +1,5 @@
 
-export async function GET() {
+export async function GET(request: Request) {
   const data = [
     { month: 'Jul', revenue: 1800 },
     { month: 'Ago', revenue: 2200 },

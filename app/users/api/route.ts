@@ -1,4 +1,4 @@
-export async function GET() {
+export async function GET(request: Request) {
   const data = [
     {
       id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
