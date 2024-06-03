@@ -1,7 +1,7 @@
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import Users from '@/app/ui/dashboard/users';
 import { Card } from '@/app/ui/dashboard/cards';
-import { fetchRevenue, fetchUsers, fetchCardStats } from '../lib/noCachedRepo';
+import { fetchRevenue, fetchUsers, fetchCardStats } from '../lib/cachedRepo';
 
 export default async function Dashboard() {
   const revenue = await fetchRevenue();
