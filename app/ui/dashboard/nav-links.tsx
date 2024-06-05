@@ -30,7 +30,7 @@ export default function NavLinks() {
         return (
           <Link
             key={link.name}
-            prefetch={false}
+            // prefetch={false}
             href={link.href}
             className={clsx(
               'flex h-[48px] grow items-center justify-center rounded-md gap-2 p-3 text-sm font-medium hover:bg-slate-200 hover:text-orange-600 md:flex-none md:justify-start md:p-2 md:px-3',

@@ -28,7 +28,7 @@ export default function Home() {
               href="/info"
               className="text-nowrap  flex items-center gap-5 self-start rounded-lg border border-orange-500 bg-white px-6 py-3 text-sm font-medium text-orange-500 transition-colors hover:bg-gray-200 lg:text-base"
             >
-              <span>More Info</span> <ArrowRightIcon className="w-5 lg:w-6" />
+              <span>Más Info</span> <ArrowRightIcon className="w-5 lg:w-6" />
             </Link>
           </div>
         </div>
